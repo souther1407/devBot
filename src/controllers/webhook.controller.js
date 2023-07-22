@@ -17,6 +17,13 @@ export default class WebhookController {
   async postPRWebhook(req, res) {
     try {
       console.log(req.body);
+      const { pull_request, action, repository } = req.body;
+      const msg = `PR ${pull_request.user.login} de ${pull_request.head.ref} a ${pull_request.base.ref} "${action}"
+      ${repository.full_name}
+      ${pull_request.title}
+      ${pull_request.created_at}
+      ${pull_request.html_url}`;
+      DevBot.instance.publishMessage(msg);
       res.sendStatus(200);
     } catch (error) {
       res.status(400).json({ error });
