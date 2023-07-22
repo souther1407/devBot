@@ -1,6 +1,6 @@
 import DevBot from "./bot.js";
 import server from "./server.js";
-
-server.listen(8080, () => {
-  console.log("server listening at", 8080);
+import config from "./config/index.js";
+server.listen(config.port, () => {
+  console.log("server listening at", config.port);
 });
