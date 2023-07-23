@@ -6,4 +6,5 @@ export default {
   clientId: process.env.CLIENT_ID,
   guildId: process.env.GUILD_ID,
   port: process.env.PORT || 8080,
+  channelId: process.env.CHANNEL_ID,
 };
